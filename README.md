@@ -57,6 +57,9 @@ Solo Iterative Process (SIP) is used in the development of the project. The plan
 
 [Product backlog, Iteration worklogs and Sprint Schedule](https://docs.google.com/spreadsheets/d/1BXONT9rXvMvA1cxp4xclEKAFVJLtd7bnc62gGaKURDw/edit?usp=sharing).
 
+[Sprint Planning Notes](https://docs.google.com/document/d/1e8vr-PIZ81hwqdo8a6nIUMVqKOvmAPhXKA3kNQ5tHN8/edit?usp=sharing).
+
+
 ## Operation
 *To do*
 
