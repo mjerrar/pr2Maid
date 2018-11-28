@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(TurtleMaid)
+project(pr2eMaid)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -137,7 +137,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME} src/TurtleMaid.cpp)
+add_executable(${PROJECT_NAME} src/PR2Maid.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -201,8 +201,8 @@ target_link_libraries(${PROJECT_NAME}
 
 if (CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  add_rostest_gtest(test_TurtleMaid test/TurtleMaid.test test/test_TurtleMaid.cpp)
-  target_link_libraries(test_TurtleMaid ${catkin_LIBRARIES})
+  add_rostest_gtest(test_PR2Maid test/PR2Maid.test test/test_PR2Maid.cpp)
+  target_link_libraries(test_PR2Maid ${catkin_LIBRARIES})
 endif()
 
 ## Add folders to be run by python nosetests
