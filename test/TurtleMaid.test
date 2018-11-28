@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="TurtleMaid" type="TurtleMaid" name="TurtleMaid" />
+  <test test-name="test_TurtleMaid" pkg="TurtleMaid" type="test_TurtleMaid" />
+</launch>
