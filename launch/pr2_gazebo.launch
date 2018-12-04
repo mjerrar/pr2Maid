@@ -1,0 +1,26 @@
+<launch>
+
+	  <!-- These are the arguments you can pass this launch file, for example paused:=true -->
+
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find pr2maid)/world/lego_room.world"/>
+
+  </include>
+
+
+  <arg name="KINECT1" default="false" />
+  <arg name="KINECT2" default="false" />
+
+  <group>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find pr2maid)/urdf/pr2_limited_sensors.urdf.xacro' --inorder KINECT1:=false KINECT2:=$(arg KINECT2)" />
+  </group>
+
+   <node name="spawn_pr2_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -param robot_description -model pr2 -ros_namespace /gazebo" respawn="false" output="screen" />
+  <!-- Startup PR2 without any mechanism controllers -->
+
+  <!-- Load and Start Default Controllers -->
+  <include file="$(find pr2_controller_configuration_gazebo)/launch/pr2_default_controllers.launch" />
+
+</launch>
