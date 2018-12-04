@@ -28,4 +28,7 @@
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
 
+  <test_depend>rosunit</test_depend>
+  <test_depend>gtest</test_depend>
+
 </package>

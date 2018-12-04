@@ -18,25 +18,30 @@
 * @Author: Jerrar Bukhari
 * @Date:   2018-12-15 16:46:30
 * @Last Modified by:   Jerrar Bukhari
-* @Last Modified time: 2018-12-15 17:31:04
+* @Last Modified time: 2018-12-15 23:27:15
 */
 
 #include "PR2Maid/BrickList.h"
 
 LegoBrick BrickList::readBrick() {
-    return list_brick_.at(list_brick_.size());
+    return list_brick_.at(list_brick_.size()-1);
 }
 
 LegoBrick BrickList::popBrick() {
-    LegoBrick brick = list_brick_.at(list_brick_.size());
+    LegoBrick brick = list_brick_.at(list_brick_.size()-1);
     list_brick_.pop_back();
+    count_--;
     return brick;
 }
 
-void BrickList::addBrick(LegoBrick brick) { list_brick_.push_back(brick); }
+void BrickList::addBrick(LegoBrick brick) {
+    list_brick_.push_back(brick);
+    count_++;
+}
 
 void BrickList::clearList() {
     list_brick_.clear();
+    count_ = 0;
 }
 
 int BrickList::getCount() {

@@ -24,12 +24,15 @@ class DropBin {
  private:
     std::string color_;
     int count_ = 0;
-    geometry_msgs::Pose pose_;
+    geometry_msgs::Pose bin_pose_;
     geometry_msgs::Pose drop_pose_;
  public:
-    DropBin(geometry_msgs::Pose pose, geometry_msgs::Pose drop_pose);
-    ~DropBin();
+    DropBin(geometry_msgs::Pose bin_pose,
+    geometry_msgs::Pose drop_pose, std::string color_);
     geometry_msgs::Pose getDropPose();
+    geometry_msgs::Pose getBinPose();
+    std::string getColor();
+    int getCount();
     void incrementBricks();
 };
 

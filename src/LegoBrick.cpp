@@ -18,7 +18,7 @@
 * @Author: Jerrar Bukhari
 * @Date:   2018-12-15 15:50:01
 * @Last Modified by:   Jerrar Bukhari
-* @Last Modified time: 2018-12-15 16:23:08
+* @Last Modified time: 2018-12-15 20:56:30
 */
 
 #include "PR2Maid/LegoBrick.h"
@@ -29,6 +29,8 @@ LegoBrick::LegoBrick(geometry_msgs::Pose pose, std::string color)
 geometry_msgs::Pose LegoBrick::getPose() { return pose_; }
 
 std::string LegoBrick::getColor() { return color_; }
+
+bool LegoBrick::getPickStatus() { return isPicked_; }
 
 void LegoBrick::changePickStatus(bool pick_status) {
     isPicked_ = pick_status;

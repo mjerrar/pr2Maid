@@ -23,14 +23,9 @@
 
 class BrickList {
  private:
-    int total_count_ = 0;
-    int red_count_ = 0;
-    int blue_count_ = 0;
-    int green_count_ = 0;
+    int count_ = 0;
     std::vector<LegoBrick> list_brick_;
  public:
-    BrickList();
-    ~BrickList();
     LegoBrick readBrick();
     LegoBrick popBrick();
     void addBrick(LegoBrick brick);

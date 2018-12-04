@@ -105,7 +105,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES LegoBrick DropBin BrickList
   CATKIN_DEPENDS 
   roscpp 
   rospy 
@@ -150,6 +149,8 @@ add_executable(${PROJECT_NAME} src/PR2Maid.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}
@@ -201,19 +202,17 @@ target_link_libraries(${PROJECT_NAME}
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
-if (CATKIN_ENABLE_TESTING)
+## Testing
+if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
-  add_rostest_gtest(test_PR2Maid test/PR2Maid.test test/test_PR2Maid.cpp)
-  target_link_libraries(test_PR2Maid ${catkin_LIBRARIES})
+  add_rostest_gtest(allTests test/PR2Maid.test
+                             test/test_main.cpp
+                             test/test_LegoBrick.cpp
+                             test/test_DropBin.cpp
+                             test/test_BrickList.cpp
+                             src/LegoBrick.cpp
+                             src/Utils.cpp
+                             src/DropBin.cpp
+                             src/BrickList.cpp)
+  target_link_libraries(allTests ${OpenCV_LIBS} ${catkin_LIBRARIES} )
 endif()
-
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
-
-
-## Coverage
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
-include(CodeCoverage)
-set(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-set(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage")
-setup_target_for_coverage(code_coverage test_PR2Maid.cpp coverage)

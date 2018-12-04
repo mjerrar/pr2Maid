@@ -28,10 +28,10 @@ class LegoBrick {
  public:
     LegoBrick(geometry_msgs::Pose pose, std::string color);
     LegoBrick();
-    ~LegoBrick();
     geometry_msgs::Pose getPose();
     std::string getColor();
     void changePickStatus(bool pick_status);
+    bool getPickStatus();
 };
 
 #endif  // INCLUDE_PR2MAID_LEGOBRICK_H_

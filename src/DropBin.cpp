@@ -18,14 +18,19 @@
 * @Author: Jerrar Bukhari
 * @Date:   2018-12-15 16:15:08
 * @Last Modified by:   Jerrar Bukhari
-* @Last Modified time: 2018-12-15 16:24:48
+* @Last Modified time: 2018-12-15 22:33:20
 */
 
 #include "PR2Maid/DropBin.h"
 
-DropBin::DropBin(geometry_msgs::Pose pose, geometry_msgs::Pose drop_pose)
-                : pose_{pose}, drop_pose_{drop_pose} {}
+DropBin::DropBin(geometry_msgs::Pose pose, geometry_msgs::Pose drop_pose,
+                std::string color):
+                bin_pose_{pose}, drop_pose_{drop_pose}, color_{color} {}
 
+geometry_msgs::Pose DropBin::getBinPose () { return bin_pose_; }
 geometry_msgs::Pose DropBin::getDropPose () { return drop_pose_; }
+
+std::string DropBin::getColor() { return color_; }
+int DropBin::getCount() { return count_; }
 
 void DropBin::incrementBricks() { count_++; }

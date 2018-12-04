@@ -1,4 +1,3 @@
 <launch>
-  <node pkg="PR2Maid" type="PR2Maid" name="PR2Maid" />
-  <test test-name="test_PR2Maid" pkg="PR2Maid" type="test_PR2Maid" />
+  <test test-name="Tests" pkg="pr2maid" type="allTests" />
 </launch>
