@@ -5,7 +5,7 @@
   <description>PR2 based pick and place robot</description>
 
   <maintainer email="mjerrar28@live.com">Jerrar Bukhari</maintainer>
-
+  <license>GPLv3</license>
   <author >Jerrar Bukhari</author>
 
   <buildtool_depend>catkin</buildtool_depend>

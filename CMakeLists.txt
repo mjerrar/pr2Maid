@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pr2eMaid)
+project(pr2maid)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -11,10 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  geometry_msgs/Twist
-  geometry_msgs/Pose
-  geometry_msgs/PoseStamped
-  geometry_msgs/PoseWithCovarianceStamped
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -108,8 +105,13 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES spiderbot
-  CATKIN_DEPENDS roscpp rospy std_msgs rostest
+  LIBRARIES LegoBrick DropBin BrickList
+  CATKIN_DEPENDS 
+  roscpp 
+  rospy 
+  std_msgs 
+  rostest   
+  geometry_msgs
 #  DEPENDS system_lib
 )
 
@@ -214,4 +216,4 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR}/cmake)
 include(CodeCoverage)
 set(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
 set(CMAKE_EXE_LINKER_FLAGS "-fprofile-arcs -ftest-coverage")
-setup_target_for_coverage(code_coverage test_SpiderBot coverage)
+setup_target_for_coverage(code_coverage test_PR2Maid.cpp coverage)
