@@ -14,7 +14,7 @@
   <arg name="KINECT2" default="false" />
 
   <group>
-    <param name="robot_description" command="$(find xacro)/xacro '$(find pr2maid)/urdf/pr2_limited_sensors.urdf.xacro' --inorder KINECT1:=false KINECT2:=$(arg KINECT2)" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(find pr2maid)/urdf/pr2_limited_sensors.urdf.xacro' --inorder" />
   </group>
 
    <node name="spawn_pr2_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -param robot_description -model pr2 -ros_namespace /gazebo" respawn="false" output="screen" />
@@ -22,5 +22,30 @@
 
   <!-- Load and Start Default Controllers -->
   <include file="$(find pr2_controller_configuration_gazebo)/launch/pr2_default_controllers.launch" />
+
+
+
+    <!-- Fake Calibration -->
+  <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+        args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- Robot pose ekf -->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="publish_tf" value="true"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <remap from="odom" to="odom" />
+    <remap from="imu_data" to="torso_lift_imu/data" />
+  </node>
+
+  <node name="cmd_vel_2_base_command" pkg="topic_tools" type="relay"
+      args="cmd_vel base_controller/command" />
+
+  <node name="base_odom_2_odom" pkg="topic_tools" type="relay"
+      args="base_odometry/odom odom" />
+
 
 </launch>
