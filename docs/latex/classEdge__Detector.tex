@@ -1,0 +1,75 @@
+\hypertarget{classEdge__Detector}{}\section{Edge\+\_\+\+Detector Class Reference}
+\label{classEdge__Detector}\index{Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}}
+
+
+Class for edge detector.  
+
+
+
+
+{\ttfamily \#include $<$Blob\+Detector.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEdge__Detector_a03735813aa2ea10d31c93d1f9cf34722}{Edge\+\_\+\+Detector} ()
+\begin{DoxyCompactList}\small\item\em Constructs the class Blob\+Detector. \end{DoxyCompactList}\item 
+void {\bfseries image\+Cb} (const sensor\+\_\+msgs\+::\+Image\+Const\+Ptr \&msg)\hypertarget{classEdge__Detector_ab5145ead4a22363853d91c0eaa9bda9f}{}\label{classEdge__Detector_ab5145ead4a22363853d91c0eaa9bda9f}
+
+\item 
+cv\+::\+Mat \hyperlink{classEdge__Detector_acb652b66cb6befd3f5aa61fca5f0c06d}{detect\+\_\+edges} (cv\+::\+Mat img)
+\begin{DoxyCompactList}\small\item\em Detect Edges of blobs. \end{DoxyCompactList}\item 
+void \hyperlink{classEdge__Detector_ad06b4e96bdab61dfccb08b7a4002ca11}{load\+\_\+publish} ()\hypertarget{classEdge__Detector_ad06b4e96bdab61dfccb08b7a4002ca11}{}\label{classEdge__Detector_ad06b4e96bdab61dfccb08b7a4002ca11}
+
+\begin{DoxyCompactList}\small\item\em Publish the image at /edge\+\_\+detector/raw topic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for edge detector. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}!Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}}
+\index{Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}!Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}}
+\subsubsection[{\texorpdfstring{Edge\+\_\+\+Detector()}{Edge_Detector()}}]{\setlength{\rightskip}{0pt plus 5cm}Edge\+\_\+\+Detector\+::\+Edge\+\_\+\+Detector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classEdge__Detector_a03735813aa2ea10d31c93d1f9cf34722}{}\label{classEdge__Detector_a03735813aa2ea10d31c93d1f9cf34722}
+
+
+Constructs the class Blob\+Detector. 
+
+Copyright (C) 2018 Jerrar Bukhari
+
+This program is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU General Public License for more details.
+
+You should have received a copy of the G\+NU General Public License along with this program. If not, see \href{http://www.gnu.org/licenses/}{\tt http\+://www.\+gnu.\+org/licenses/}. 
+
+\subsection{Member Function Documentation}
+\index{Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}!detect\+\_\+edges@{detect\+\_\+edges}}
+\index{detect\+\_\+edges@{detect\+\_\+edges}!Edge\+\_\+\+Detector@{Edge\+\_\+\+Detector}}
+\subsubsection[{\texorpdfstring{detect\+\_\+edges(cv\+::\+Mat img)}{detect_edges(cv::Mat img)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Edge\+\_\+\+Detector\+::detect\+\_\+edges (
+\begin{DoxyParamCaption}
+\item[{cv\+::\+Mat}]{img}
+\end{DoxyParamCaption}
+)}\hypertarget{classEdge__Detector_acb652b66cb6befd3f5aa61fca5f0c06d}{}\label{classEdge__Detector_acb652b66cb6befd3f5aa61fca5f0c06d}
+
+
+Detect Edges of blobs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em img} & The image\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the centroids of blobs 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vendetta/catkin\+\_\+ws/src/pr2maid/include/\+P\+R2\+Maid/Blob\+Detector.\+h\item 
+/home/vendetta/catkin\+\_\+ws/src/pr2maid/src/Blob\+Detector.\+cpp\end{DoxyCompactItemize}

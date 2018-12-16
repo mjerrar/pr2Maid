@@ -23,14 +23,51 @@
 
 #include "PR2Maid/DropBin.h"
 
+
+/**
+ * @brief      Constructs the object Bin
+ *
+ * @param[in]  pose       The pose of the Bin
+ * @param[in]  drop_pose  The drop pose of the brick
+ * @param[in]  color      The color of the Bin
+ */
 DropBin::DropBin(geometry_msgs::Pose pose, geometry_msgs::Pose drop_pose,
                 std::string color):
                 bin_pose_{pose}, drop_pose_{drop_pose}, color_{color} {}
 
+
+/**
+ * @brief      Gets the bin pose.
+ *
+ * @return     The bin pose.
+ */
 geometry_msgs::Pose DropBin::getBinPose () { return bin_pose_; }
+
+
+
+/**
+ * @brief      Gets the brick drop pose.
+ *
+ * @return     The drop pose.
+ */
 geometry_msgs::Pose DropBin::getDropPose () { return drop_pose_; }
 
+
+
+/**
+ * @brief      Gets the Bin color.
+ *
+ * @return     The color.
+ */
 std::string DropBin::getColor() { return color_; }
+
+
+
+/**
+ * @brief      Gets the count of brick in Bin
+ *
+ * @return     The count.
+ */
 int DropBin::getCount() { return count_; }
 
 void DropBin::incrementBricks() { count_++; }

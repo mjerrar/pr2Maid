@@ -20,6 +20,15 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "geometry_msgs/Pose.h"
 #include "PR2Maid/LegoBrick.h"
 
+
+/**
+ * @brief      Helper Utilities for tests
+ *
+ * @param[in]  pose1  The pose 1
+ * @param[in]  pose2  The pose 2
+ *
+ * @return     true if test is true
+ */
 bool comparePose(geometry_msgs::Pose pose1,
         geometry_msgs::Pose pose2);
 bool compareBrick(LegoBrick brick1, LegoBrick brick2);

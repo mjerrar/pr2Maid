@@ -28,6 +28,11 @@
 static const std::string OPENCV_WINDOW = "Raw Image window";
 static const std::string OPENCV_WINDOW_1 = "Edge Detection";
 
+
+
+/**
+ * @brief      Class for edge detector.
+ */
 class Edge_Detector {
  private:
   ros::NodeHandle nh_;

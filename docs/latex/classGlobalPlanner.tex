@@ -1,0 +1,111 @@
+\hypertarget{classGlobalPlanner}{}\section{Global\+Planner Class Reference}
+\label{classGlobalPlanner}\index{Global\+Planner@{Global\+Planner}}
+
+
+Class for global planner.  
+
+
+
+
+{\ttfamily \#include $<$Global\+Planner.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGlobalPlanner_a93ec4b14e10e9cdf145e5b4135b19162}{Global\+Planner} (ros\+::\+Node\+Handle \&nh)
+\begin{DoxyCompactList}\small\item\em Constructs the object Global P\+Lanner. \end{DoxyCompactList}\item 
+\hyperlink{classGlobalPlanner_aa18249dc6b48c8fb593f517113304024}{$\sim$\+Global\+Planner} ()\hypertarget{classGlobalPlanner_aa18249dc6b48c8fb593f517113304024}{}\label{classGlobalPlanner_aa18249dc6b48c8fb593f517113304024}
+
+\begin{DoxyCompactList}\small\item\em Destroys the object Global Planner. \end{DoxyCompactList}\item 
+void \hyperlink{classGlobalPlanner_a5db720c7d92cdff38ce320ed8345285a}{plan\+Sub\+Cb} (const nav\+\_\+msgs\+::\+Path path)
+\begin{DoxyCompactList}\small\item\em Callback funtion for recieving the path. \end{DoxyCompactList}\item 
+bool \hyperlink{classGlobalPlanner_adf04407eda5c744d90c231155f45dee1}{set\+Goal} (move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal goal)
+\begin{DoxyCompactList}\small\item\em Sets the goal to reach fro move\+\_\+base. \end{DoxyCompactList}\item 
+nav\+\_\+msgs\+::\+Path \hyperlink{classGlobalPlanner_a3a66b51a4359b612840620ee8b328691}{get\+Path} ()
+\begin{DoxyCompactList}\small\item\em Gets the path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for global planner. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Global\+Planner@{Global\+Planner}!Global\+Planner@{Global\+Planner}}
+\index{Global\+Planner@{Global\+Planner}!Global\+Planner@{Global\+Planner}}
+\subsubsection[{\texorpdfstring{Global\+Planner(ros\+::\+Node\+Handle \&nh)}{GlobalPlanner(ros::NodeHandle &nh)}}]{\setlength{\rightskip}{0pt plus 5cm}Global\+Planner\+::\+Global\+Planner (
+\begin{DoxyParamCaption}
+\item[{ros\+::\+Node\+Handle \&}]{nh}
+\end{DoxyParamCaption}
+)}\hypertarget{classGlobalPlanner_a93ec4b14e10e9cdf145e5b4135b19162}{}\label{classGlobalPlanner_a93ec4b14e10e9cdf145e5b4135b19162}
+
+
+Constructs the object Global P\+Lanner. 
+
+Copyright (C) 2018 Jerrar Bukhari
+
+This program is free software\+: you can redistribute it and/or modify it under the terms of the G\+NU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but W\+I\+T\+H\+O\+UT A\+NY W\+A\+R\+R\+A\+N\+TY; without even the implied warranty of M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY or F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE. See the G\+NU General Public License for more details.
+
+You should have received a copy of the G\+NU General Public License along with this program. If not, see \href{http://www.gnu.org/licenses/}{\tt http\+://www.\+gnu.\+org/licenses/}. 
+\begin{DoxyParams}{Parameters}
+{\em nh} & R\+OS node Handle \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Global\+Planner@{Global\+Planner}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Global\+Planner@{Global\+Planner}}
+\subsubsection[{\texorpdfstring{get\+Path()}{getPath()}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Global\+Planner\+::get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classGlobalPlanner_a3a66b51a4359b612840620ee8b328691}{}\label{classGlobalPlanner_a3a66b51a4359b612840620ee8b328691}
+
+
+Gets the path. 
+
+\begin{DoxyReturn}{Returns}
+The path. 
+\end{DoxyReturn}
+\index{Global\+Planner@{Global\+Planner}!plan\+Sub\+Cb@{plan\+Sub\+Cb}}
+\index{plan\+Sub\+Cb@{plan\+Sub\+Cb}!Global\+Planner@{Global\+Planner}}
+\subsubsection[{\texorpdfstring{plan\+Sub\+Cb(const nav\+\_\+msgs\+::\+Path path)}{planSubCb(const nav_msgs::Path path)}}]{\setlength{\rightskip}{0pt plus 5cm}void Global\+Planner\+::plan\+Sub\+Cb (
+\begin{DoxyParamCaption}
+\item[{const nav\+\_\+msgs\+::\+Path}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classGlobalPlanner_a5db720c7d92cdff38ce320ed8345285a}{}\label{classGlobalPlanner_a5db720c7d92cdff38ce320ed8345285a}
+
+
+Callback funtion for recieving the path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & The path -\/ sequence of stamped poses \\
+\hline
+\end{DoxyParams}
+\index{Global\+Planner@{Global\+Planner}!set\+Goal@{set\+Goal}}
+\index{set\+Goal@{set\+Goal}!Global\+Planner@{Global\+Planner}}
+\subsubsection[{\texorpdfstring{set\+Goal(move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal goal)}{setGoal(move_base_msgs::MoveBaseGoal goal)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Global\+Planner\+::set\+Goal (
+\begin{DoxyParamCaption}
+\item[{move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal}]{goal}
+\end{DoxyParamCaption}
+)}\hypertarget{classGlobalPlanner_adf04407eda5c744d90c231155f45dee1}{}\label{classGlobalPlanner_adf04407eda5c744d90c231155f45dee1}
+
+
+Sets the goal to reach fro move\+\_\+base. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em goal} & The goal\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true th planar succeeds in planning 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/vendetta/catkin\+\_\+ws/src/pr2maid/include/\+P\+R2\+Maid/Global\+Planner.\+h\item 
+/home/vendetta/catkin\+\_\+ws/src/pr2maid/src/Global\+Planner.\+cpp\end{DoxyCompactItemize}

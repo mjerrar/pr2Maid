@@ -24,9 +24,12 @@
 
 #include <PR2Maid/BlobDetector.h>
 
+
+/**
+ * @brief      Constructs the class BlobDetector
+ */
 Edge_Detector::Edge_Detector(): it_(nh_) {
-    img_src = cv::imread("/home/vendetta/catkin_ws/src/turtlemaid/test_data/raw_images/image_raw_1.png");
-    image_sub_ = it_.subscribe("/camera/rgb/image_raw", 1,
+    image_sub_ = it_.subscribe("/wide_stereo/left/image_raw", 1,
                                &Edge_Detector::imageCb, this);
     image_pub_ = it_.advertise("/edge_detector/raw_image", 1);
 }
@@ -44,6 +47,14 @@ void Edge_Detector::imageCb(const sensor_msgs::ImageConstPtr& msg) {
     img_src = img_bridge->image;
 }
 
+
+/**
+ * @brief      Detect Edges of blobs
+ *
+ * @param[in]  img   The image
+ *
+ * @return     return the centroids of blobs
+ */
 cv::Mat Edge_Detector::detect_edges(cv::Mat img) {
     cv::Mat src, src_gray, centR, centG, centB, cent, holder;
     cv::Mat dst, detected_edges;
@@ -83,27 +94,24 @@ cv::Mat Edge_Detector::detect_edges(cv::Mat img) {
         }
 
         cv::threshold(color_planes[iter], thr, 20, 255, CV_THRESH_BINARY);
-        cv::blur( thr, detected_edges, cv::Size(5, 5) );
+        cv::blur(thr, detected_edges, cv::Size(5, 5) );
 
         // detect edges using canny
-        cv::Canny( detected_edges, canny_output, 50, 100, 5, false );
-
+        cv::Canny(detected_edges, canny_output, 50, 100, 5, false);
         // find contours
-        cv::findContours( canny_output, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE, cv::Point(0, 0) );
-
+        cv::findContours(canny_output, contours, hierarchy, CV_RETR_TREE,
+                        CV_CHAIN_APPROX_NONE, cv::Point(0, 0));
         // get the moments
         std::vector<cv::Moments> mu(contours.size());
-        for ( int i = 0; i < contours.size(); i++ )
-        { mu[i] = cv::moments( contours[i], false ); }
-
+        for (int i = 0; i < contours.size(); i++ )
+        {mu[i] = cv::moments(contours[i], false);}
         // get the centroid of figures.
         std::vector<cv::Point2f> mc(contours.size());
-        for ( int i = 0; i < contours.size(); i++) {
-            mc[i] = cv::Point2f( mu[i].m10 / mu[i].m00 , mu[i].m01 / mu[i].m00 );
+        for (int i = 0; i < contours.size(); i++) {
+            mc[i] = cv::Point2f(mu[i].m10 / mu[i].m00 , mu[i].m01 / mu[i].m00);
             points = cv::Mat(mc[i]);
             ROS_INFO_STREAM(points);
         }
-
 
         // draw contours
         cv::Mat drawing(canny_output.size(), CV_8UC3, cv::Scalar(0, 0, 0));
@@ -128,6 +136,10 @@ cv::Mat Edge_Detector::detect_edges(cv::Mat img) {
     return cent;
 }
 
+
+/**
+ * @brief      Publish the image at /edge_detector/raw topic
+ */
 void Edge_Detector::load_publish() {
     img_cent = detect_edges(img_src);
     img_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8",

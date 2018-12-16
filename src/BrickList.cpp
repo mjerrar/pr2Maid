@@ -23,10 +23,22 @@
 
 #include "PR2Maid/BrickList.h"
 
+
+/**
+ * @brief      Reads a brick for list.
+ *
+ * @return     read a brick from the list without popping
+ */
 LegoBrick BrickList::readBrick() {
     return list_brick_.at(list_brick_.size()-1);
 }
 
+
+/**
+ * @brief      read the brick from the list
+ *
+ * @return     pops the brick from the list
+ */
 LegoBrick BrickList::popBrick() {
     LegoBrick brick = list_brick_.at(list_brick_.size()-1);
     list_brick_.pop_back();
@@ -34,20 +46,42 @@ LegoBrick BrickList::popBrick() {
     return brick;
 }
 
+
+/**
+ * @brief      Adds a brick.
+ *
+ * @param[in]  brick  The brick
+ */
 void BrickList::addBrick(LegoBrick brick) {
     list_brick_.push_back(brick);
     count_++;
 }
 
+
+/**
+ * @brief      Empty Brick list contents
+ */
 void BrickList::clearList() {
     list_brick_.clear();
     count_ = 0;
 }
 
+
+/**
+ * @brief      Gets the count.
+ *
+ * @return     The count.
+ */
 int BrickList::getCount() {
     return list_brick_.size();
 }
 
+
+/**
+ * @brief      Determines if empty.
+ *
+ * @return     True if empty, False otherwise.
+ */
 bool BrickList::isEmpty() {
     return list_brick_.empty();
 }

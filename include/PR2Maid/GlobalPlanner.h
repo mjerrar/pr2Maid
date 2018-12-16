@@ -35,6 +35,11 @@
 typedef actionlib::SimpleActionClient<
             move_base_msgs::MoveBaseAction> MoveBaseClient;
 
+
+
+/**
+ * @brief      Class for global planner.
+ */
 class GlobalPlanner {
  private:
   ros::NodeHandle n_;

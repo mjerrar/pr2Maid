@@ -20,6 +20,11 @@
 #include <geometry_msgs/Pose.h>
 #include <string>
 
+
+
+/**
+ * @brief      Class for lego brick.
+ */
 class LegoBrick {
  private:
     std::string color_;

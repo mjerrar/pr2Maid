@@ -21,6 +21,10 @@
 
 #include "PR2Maid/LegoBrick.h"
 
+
+/**
+ * @brief      List of bricks.
+ */
 class BrickList {
  private:
     int count_ = 0;

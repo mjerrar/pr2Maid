@@ -18,28 +18,42 @@
 * @Author: Jerrar Bukhari
 * @Date:   2018-12-16 16:15:14
 * @Last Modified by:   Jerrar Bukhari
-* @Last Modified time: 2018-12-16 19:16:02
+* @Last Modified time: 2018-12-16 05:42:34
 */
 
 #include <ros/ros.h>
+#include <iostream>
 #include "PR2Maid/PR2Maid.h"
 #include "PR2Maid/LegoBrick.h"
 #include "PR2Maid/DropBin.h"
 #include "PR2Maid/BrickList.h"
 #include "PR2Maid/GlobalPlanner.h"
 #include "PR2Maid/LocalPlanner.h"
-#include <iostream>
 
-void cb(const nav_msgs::Path::ConstPtr& msg)
-{
+/**
+ * @brief      Callback funtion for previewing the plan
+ *
+ * @param[in]  msg   The message
+ */
+void cb(const nav_msgs::Path::ConstPtr& msg) {
   ROS_INFO_STREAM(msg->poses[0].pose.position.x);
 }
 
+
+/**
+ * @brief      main function for planning
+ *
+ * @param[in]  argc  The argc
+ * @param      argv  The argv
+ *
+ * @return     true for succesful completion
+ */
 int main(int argc, char** argv) {
     ros::init(argc, argv, "pr2_main");
     ros::NodeHandle nh;
     ROS_INFO("doing");
-    ros::Subscriber sub = nh.subscribe("move_base_node/NavfnROS/plan", 1, cb); 
+    ros::Subscriber sub = nh.subscribe("move_base_node/NavfnROS/plan",
+                                       1, cb);
     GlobalPlanner planner(nh);
     move_base_msgs::MoveBaseGoal goal;
     goal.target_pose.header.frame_id = "base_footprint";
@@ -48,12 +62,9 @@ int main(int argc, char** argv) {
     goal.target_pose.pose.position.z = 0;
     goal.target_pose.pose.orientation.w = 1;
     planner.setGoal(goal);
-    //ros::spin();
+    geometry_msgs::Pose zero_pose;
+  LocalPlanner driver(nh);
+  driver.Drive(zero_pose);
 
-  RobotDriver driver(nh);
-  driver.driveForwardOdom(2);
-
-
-    //ROS_INFO(path.poses.front().pose.position.x);
-    return 0;
+return 0;
 }

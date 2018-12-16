@@ -22,6 +22,15 @@
 
 #include "PR2Maid/Utils.h"
 
+
+/**
+ * @brief      compare two geometry_msgs::Pose
+ *
+ * @param[in]  pose1  The pose 1
+ * @param[in]  pose2  The pose 2
+ *
+ * @return     invidually compare tewo pose msgs
+ */
 bool comparePose(geometry_msgs::Pose pose1,
         geometry_msgs::Pose pose2) {
     if ((pose1.position.x == pose2.position.x) &&
@@ -37,6 +46,15 @@ bool comparePose(geometry_msgs::Pose pose1,
     }
 }
 
+
+/**
+ * @brief      Compare two bricks
+ *
+ * @param[in]  brick1  The brick 1
+ * @param[in]  brick2  The brick 2
+ *
+ * @return     useful for testing the Brick Class
+ */
 bool compareBrick(LegoBrick brick1, LegoBrick brick2) {
     if ( comparePose(brick1.getPose(), brick2.getPose()) &&
         (brick1.getColor() == brick2.getColor()) &&

@@ -20,6 +20,10 @@
 #include <string>
 #include "geometry_msgs/Pose.h"
 
+
+/**
+ * @brief      Class for drop bin.
+ */
 class DropBin {
  private:
     std::string color_;

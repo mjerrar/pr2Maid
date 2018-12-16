@@ -23,15 +23,51 @@
 
 #include "PR2Maid/LegoBrick.h"
 
+
+
+/**
+ * @brief      Constructs the object Brick
+ *
+ * @param[in]  pose   The pose
+ * @param[in]  color  The color
+ */
 LegoBrick::LegoBrick(geometry_msgs::Pose pose, std::string color)
                         :pose_{pose}, color_{color} {}
 
+
+
+
+/**
+ * @brief      Gets the pose.
+ *
+ * @return     The pose.
+ */
 geometry_msgs::Pose LegoBrick::getPose() { return pose_; }
 
+
+
+/**
+ * @brief      Gets the color.
+ *
+ * @return     The color.
+ */
 std::string LegoBrick::getColor() { return color_; }
 
+
+/**
+ * @brief      Gets the pick status.
+ *
+ * @return     The pick status.
+ */
 bool LegoBrick::getPickStatus() { return isPicked_; }
 
+
+
+/**
+ * @brief      change Brick pick status
+ *
+ * @param[in]  pick_status  The pick status
+ */
 void LegoBrick::changePickStatus(bool pick_status) {
     isPicked_ = pick_status;
 }
