@@ -3,7 +3,7 @@ project(pr2maid)
 
 add_compile_options(-std=c++11)
 
-find_package(catkin REQUIRED COMPONENTS
+find_package(catkin   REQUIRED COMPONENTS
   roscpp
   rospy
   cv_bridge
@@ -16,9 +16,12 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   message_generation
   visualization_msgs
+  OpenCV
+  Eigen3
+  moveit_core
+  moveit_visual_tools
+  moveit_ros_planning_interface
 )
-find_package( OpenCV REQUIRED )
-find_package( Eigen3 REQUIRED )
 
 add_message_files(
   FILES
@@ -60,6 +63,10 @@ add_executable(${PROJECT_NAME} src/PR2Maid.cpp
         src/GlobalPlanner.cpp
         src/LocalPlanner.cpp
         )
+
+add_executable(${PROJECT_NAME}_MoveitPlanner src/MoveitPlanner.cpp)
+target_link_libraries(${PROJECT_NAME}_MoveitPlanner ${catkin_LIBRARIES})
+
 add_executable(${PROJECT_NAME}_blob_node src/BlobDetector.cpp)
 target_link_libraries(${PROJECT_NAME}_blob_node ${catkin_LIBRARIES})
 
