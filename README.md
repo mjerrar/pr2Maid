@@ -1,5 +1,5 @@
 # PR2Maid
-[![Build Status](https://travis-ci.org/mjerrar/pr2Maid.svg?branch=master)](https://travis-ci.org/mjerrar/mygit) [![Coverage Status](https://coveralls.io/repos/github/mjerrar/TurtleMaid/badge.svg?branch=master)](https://coveralls.io/github/mjerrar/TurtleMaid?branch=master)[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/mjerrar/pr2Maid.svg?branch=master)](https://travis-ci.org/mjerrar/mygit)   [![Coverage Status](https://coveralls.io/repos/github/mjerrar/TurtleMaid/badge.svg?branch=master)](https://coveralls.io/github/mjerrar/TurtleMaid?branch=master)   [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)   
 
 PR2 based Path Planar and Lego Brick Picker Robot.
 
@@ -77,7 +77,11 @@ Solo Iterative Process (SIP) is used in the development of the project. The plan
 
 [Product backlog, Iteration worklogs and Sprint Schedule](https://docs.google.com/spreadsheets/d/1BXONT9rXvMvA1cxp4xclEKAFVJLtd7bnc62gGaKURDw/edit?usp=sharing).
 
+
 [Sprint Planning Notes](https://docs.google.com/document/d/1e8vr-PIZ81hwqdo8a6nIUMVqKOvmAPhXKA3kNQ5tHN8/edit?usp=sharing).
+
+
+[Video Presentation](https://youtu.be/Wo3xityZZCc)
 
 
 ## Build
@@ -110,26 +114,23 @@ Now, to visualize the planning of the planning markers and to command to there r
 ```
 roslaunch pr2_navigation_global rviz_move_base.launch
 ```
-To visualize the 
+To visualize the Output of the Line Extractor
+```
+rosrun pr2maid pr2maid_Line_extraction_node
+```
+and then enable visual markers in Rviz to see an overlay, you can also turn on other markers to visualize.
 
-
-## Test
-*To do*
 
 ## Demo
-*To be updated*
 
-## Known Issues/ Bugs
-*To do*
+
 
 ## API and other developer documentation
-Laser_line_Extractor
-
-
+[kam3k/laser_line_extractor](https://github.com/kam3k/laser_line_extraction) This packages helps in isolating line segments from laser scans. It is released under BSD-3 License which can be found in the [src/Laser_Line_Extractor](https://github.com/mjerrar/pr2Maid/tree/master/src/LaserLineExtractor) folder. 
 
 
 ## Known Issues/ Bugs
-
+- On restart of Rviz GUI, IMU simualted IMU sensor fails and takes time to recover effecting the EKF odometry estimation.
 
 ## Doxygen Documentation
 Doxygen Documentation generation steps:
@@ -143,6 +144,7 @@ Open configuration file and update the following:
 ```
 PROJECT_NAME = 'pr2maid'
 INPUT = ../src ../include/pr2maid/ ../test
+ENABLE_PREPROCESSING = NO
 ```
 Run and generate the documents by executing the following:
 ```
