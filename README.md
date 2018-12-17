@@ -122,8 +122,10 @@ and then enable visual markers in Rviz to see an overlay, you can also turn on o
 
 
 ## Demo
-
-
+![AMCL Localization](https://github.com/mjerrar/pr2Maid/blob/master/images/amcl.png)
+![Line Segment Extraction](https://github.com/mjerrar/pr2Maid/blob/master/images/line_extraction.gif)
+![Navigation](https://github.com/mjerrar/pr2Maid/blob/master/images/navigation.png)
+![Obstacle](https://github.com/mjerrar/pr2Maid/blob/master/images/obstacle.png)
 
 ## API and other developer documentation
 [kam3k/laser_line_extractor](https://github.com/kam3k/laser_line_extraction) This packages helps in isolating line segments from laser scans. It is released under BSD-3 License which can be found in the [src/Laser_Line_Extractor](https://github.com/mjerrar/pr2Maid/tree/master/src/LaserLineExtractor) folder. 
@@ -164,4 +166,4 @@ lcov --remove coverage.info '/opt/*' '/usr/*' '*/devel/*' '*test_*' '*_test*' --
 lcov --list coverage.info
 ```
 The results are shown below:
-![]()
+![Coverage](https://github.com/mjerrar/pr2Maid/blob/master/results/coverage.png)
