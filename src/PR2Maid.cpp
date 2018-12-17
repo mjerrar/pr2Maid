@@ -23,7 +23,6 @@
 
 #include <ros/ros.h>
 #include <iostream>
-#include "PR2Maid/PR2Maid.h"
 #include "PR2Maid/LegoBrick.h"
 #include "PR2Maid/DropBin.h"
 #include "PR2Maid/BrickList.h"
